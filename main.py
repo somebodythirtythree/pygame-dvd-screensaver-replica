@@ -16,8 +16,8 @@ class DVDScreensaverBox:
         self.dy = 1
         self.img = pg.image.load("assets/dvd.png").convert_alpha()
         self.rect = self.img.get_rect()
-        self.rect.x = randint(200, WIDTH - 200)
-        self.rect.y = randint(100, HEIGHT - 100)
+        self.rect.x = randint(self.rect.width + 10, WIDTH - self.rect.width - 10)
+        self.rect.y = randint(self.rect.height + 10, HEIGHT - self.rect.height - 10)
         self.x = self.rect.x
         self.y = self.rect.y
         self.color = pg.Color("white")
