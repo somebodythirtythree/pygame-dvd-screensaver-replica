@@ -21,7 +21,6 @@ class DVDScreensaverBox:
         self.rect.y = randint(self.rect.height + 10, HEIGHT - self.rect.height - 10)
         self.x = self.rect.x
         self.y = self.rect.y
-        self.color = pg.Color("white")
 
     def draw(self):
         screen.blit(self.img, self.rect)
