@@ -2,6 +2,10 @@
 
 Simple DVD screensaver recreation in Pygame. 
 
+## Features
+- DVD screensaver object changes color when it hits any edge of the window
+- A sound effect plays in the rare event the object hits a corner!
+
 # Installation
 **Note: Use with Python 3.13**
 
