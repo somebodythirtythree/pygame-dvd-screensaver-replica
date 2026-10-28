@@ -11,14 +11,13 @@ colors = [pg.Color("red"), pg.Color("green"), pg.Color("blue"), pg.Color("yellow
 
 class DVDScreensaverBox:
     """The DVD screensaver box class"""
-    # TODO: play sound effect if box hits corner
     def __init__(self):
-        self.width = 200
-        self.height = 100
         self.dx = 2
         self.dy = 1
         self.img = pg.image.load("assets/dvd.png").convert_alpha()
         self.rect = self.img.get_rect()
+        self.rect.x = randint(200, WIDTH - 200)
+        self.rect.y = randint(100, HEIGHT - 100)
         self.x = self.rect.x
         self.y = self.rect.y
         self.color = pg.Color("white")
@@ -38,7 +37,19 @@ class DVDScreensaverBox:
             self.dy = -self.dy
             self.color = choice(colors)
 
+        if self.rect.topleft == (0, 0) or self.rect.topright == (WIDTH, 0) \
+                or self.rect.bottomleft == (0, HEIGHT) or self.rect.bottomright == (WIDTH, HEIGHT):
+            self.dx = -self.dx
+            self.dy = -self.dy
+            self.color = choice(colors)
+            print("Corner hit")
+            pg.mixer.music.load("assets/wow.mp3")
+            pg.mixer.music.play()
+
+
 def main():
+    pg.init()
+    pg.mixer.init()
     running = True
     box = DVDScreensaverBox()
     while running:
