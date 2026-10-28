@@ -7,7 +7,7 @@ Simple DVD screensaver recreation in Pygame.
 
 1. Clone repository
 ```bash
-git clone <insert future repository link here>
+git clone https://github.com/somebodythirtythree/pygame-dvd-screensaver-replica.git
 ```
 2. Install pygame
 ```bash
