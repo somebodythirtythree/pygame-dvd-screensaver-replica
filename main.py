@@ -11,18 +11,20 @@ colors = [pg.Color("red"), pg.Color("green"), pg.Color("blue"), pg.Color("yellow
 
 class DVDScreensaverBox:
     """The DVD screensaver box class"""
+    # TODO: play sound effect if box hits corner
     def __init__(self):
         self.width = 200
         self.height = 100
         self.dx = 2
         self.dy = 1
-        self.rect = Rect(randint(300, 900), randint(200, 600), self.width, self.height)  # The hitbox
+        self.img = pg.image.load("assets/dvd.png").convert_alpha()
+        self.rect = self.img.get_rect()
         self.x = self.rect.x
         self.y = self.rect.y
         self.color = pg.Color("white")
 
     def draw(self):
-        pg.draw.rect(screen, self.color, self.rect)
+        screen.blit(self.img, self.rect)
 
     def update(self):
         self.x += self.dx
