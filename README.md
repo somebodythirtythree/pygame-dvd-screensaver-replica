@@ -17,5 +17,5 @@ pip install pygame
 ```bash
 python main.py
 ```
-4. Enjoy the bouncing square.
+4. Enjoy the bouncing rectangle.
 
