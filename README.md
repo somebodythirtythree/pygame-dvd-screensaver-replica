@@ -1,6 +1,8 @@
 # About
 
-Simple DVD screensaver recreation in Pygame. 
+Simple DVD screensaver recreation in Pygame.
+
+![](assets/thumbnail.png)
 
 ## Features
 - DVD screensaver object changes color when it hits any edge of the window
