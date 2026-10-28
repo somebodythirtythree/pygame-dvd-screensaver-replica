@@ -1,6 +1,7 @@
 import pygame as pg
 from pygame.locals import *
 from random import choice, randint
+import sys
 WIDTH = 1280
 HEIGHT = 720
 FPS = 120
@@ -67,7 +68,8 @@ def main():
         for event in pg.event.get():
             if event.type == QUIT:
                 running = False
-
+    pg.quit()
+    sys.exit()
 
 if __name__ == "__main__":
     main()
