@@ -7,7 +7,7 @@ FPS = 120
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("DVD Screensaver")
 clock = pg.time.Clock()
-colors = [pg.Color("red"), pg.Color("green"), pg.Color("blue"), pg.Color("yellow"), pg.Color("magenta")]
+colors = [(randint(0, 255), randint(0, 255), randint(0, 255)) for _ in range(15)]
 
 class DVDScreensaverBox:
     """The DVD screensaver box class"""
