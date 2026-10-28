@@ -25,6 +25,12 @@ class DVDScreensaverBox:
     def draw(self):
         screen.blit(self.img, self.rect)
 
+    def change_color(self, color):
+        new_surface = self.img.copy()
+        new_surface.fill((0, 0, 0, 255), special_flags=pg.BLEND_RGBA_MULT)
+        new_surface.fill(color + (0,), special_flags=pg.BLEND_RGBA_ADD)
+        return new_surface
+
     def update(self):
         self.x += self.dx
         self.y += self.dy
@@ -32,16 +38,16 @@ class DVDScreensaverBox:
         self.rect.y = self.y
         if self.rect.right >= WIDTH or self.rect.left <= 0:
             self.dx = -self.dx
-            self.color = choice(colors)
+            self.img = self.change_color(choice(colors))
         elif self.rect.bottom >= HEIGHT or self.rect.top <= 0:
             self.dy = -self.dy
-            self.color = choice(colors)
+            self.img = self.change_color(choice(colors))
 
         if self.rect.topleft == (0, 0) or self.rect.topright == (WIDTH, 0) \
                 or self.rect.bottomleft == (0, HEIGHT) or self.rect.bottomright == (WIDTH, HEIGHT):
             self.dx = -self.dx
             self.dy = -self.dy
-            self.color = choice(colors)
+            self.img = self.change_color(choice(colors))
             print("Corner hit")
             pg.mixer.music.load("assets/wow.mp3")
             pg.mixer.music.play()
